@@ -10,6 +10,8 @@ public class GameField : MonoBehaviour {
     public int PredatorNum { get; set; }
     public int PreyNum { get; set; }
 
+    [SerializeField] private Color preyColor, predatorColor;
+
     public void Init(int width, int height) {
         _tiles = new Tile[width, height];
 
@@ -79,11 +81,11 @@ public class GameField : MonoBehaviour {
     private Color GetTileColor(Tile t) {
         TileType type = t.Type;
         if (type == TileType.Predator) {
-            return Color.red;
+            return predatorColor;
         }
 
         if (type == TileType.Prey) {
-            return Color.green;
+            return preyColor;
         }
         
         return Color.black;
